@@ -1,0 +1,204 @@
+.choose-us {
+    background: var(--background-color);
+    padding: 6rem 2rem;
+    color: var(--text-color);
+    overflow: hidden;
+  }
+  
+  .choose-us-container {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .choose-us-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .choose-us-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeInUp 0.8s ease-out;
+  }
+  
+  .choose-us-header p {
+    color: rgba(230, 241, 255, 0.8);
+    font-size: 1.2rem;
+    animation: fadeInUp 0.8s ease-out 0.2s backwards;
+  }
+  
+  .features-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .features-left, .features-right {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .feature-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    animation: fadeInUp 0.8s ease-out backwards;
+  }
+  
+  .features-left .feature-item {
+    text-align: right;
+    flex-direction: row-reverse;
+  }
+  
+  .feature-icon-wrapper {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(124, 185, 255, 0.1) 0%, rgba(43, 76, 126, 0.1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+  
+  .feature-item:hover .feature-icon-wrapper {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    transform: scale(1.1);
+  }
+  
+  .feature-icon {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+  }
+  
+  .feature-item:hover .feature-icon {
+    color: white;
+  }
+  
+  .feature-content h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    transition: all 0.3s ease;
+  }
+  
+  .feature-item:hover .feature-content h3 {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  
+  .feature-content p {
+    color: rgba(230, 241, 255, 0.8);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+  
+  .central-image {
+    position: relative;
+    width: 400px;
+    height: 400px;
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .choose-us-illustration {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Animation delays for features */
+  .features-left .feature-item:nth-child(1) { animation-delay: 0.2s; }
+  .features-left .feature-item:nth-child(2) { animation-delay: 0.4s; }
+  .features-left .feature-item:nth-child(3) { animation-delay: 0.6s; }
+  .features-right .feature-item:nth-child(1) { animation-delay: 0.3s; }
+  .features-right .feature-item:nth-child(2) { animation-delay: 0.5s; }
+  .features-right .feature-item:nth-child(3) { animation-delay: 0.7s; }
+  
+  @media (max-width: 1200px) {
+    .features-container {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+    }
+  
+    .features-left, .features-right {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+  
+    .features-left .feature-item {
+      flex-direction: row;
+      text-align: left;
+    }
+  
+    .central-image {
+      width: 300px;
+      height: 300px;
+      margin: 2rem auto;
+      order: -1;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .choose-us {
+      padding: 4rem 1rem;
+    }
+  
+    .choose-us-header h2 {
+      font-size: 2rem;
+    }
+  
+    .choose-us-header p {
+      font-size: 1rem;
+    }
+  
+    .feature-item {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  
+    .features-left .feature-item {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .feature-icon-wrapper {
+      margin-bottom: 1rem;
+    }
+  
+    .central-image {
+      width: 250px;
+      height: 250px;
+    }
+  }
+  
+  
