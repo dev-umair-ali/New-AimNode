@@ -1,7 +1,10 @@
-
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "../styles/portfolio.css";
-// import ThreeScene from "./ThreeScene";
+import Popup from "./Popup";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const portfolioItems = [
   {
@@ -70,62 +73,87 @@ const categories = [
 
 export default function PortfolioSection() {
   const [activeCategory, setActiveCategory] = useState("All");
+  const [selectedItem, setSelectedItem] = useState(null);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   const filteredItems =
     activeCategory === "All"
       ? portfolioItems
       : portfolioItems.filter((item) => item.category === activeCategory);
 
+  const openPopup = (item) => {
+    setSelectedItem(item);
+    setIsPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setIsPopupOpen(false);
+  };
+
+  // useEffect(() => {
+  //   gsap.utils.toArray(".portfolio-item").forEach((item) => {
+  //     gsap.from(item, {
+  //       opacity: 0,
+  //       y: 50,
+  //       duration: 1,
+  //       ease: "power3.out",
+  //       scrollTrigger: {
+  //         trigger: item,
+  //         start: "top bottom-=100",
+  //         end: "top center",
+  //         scrub: 1,
+  //       },
+  //     });
+  //   });
+  // }, [filteredItems]);
+
   return (
     <>
-    <section className="portfolio-section">
-      <div className="portfolio-header">
-        <h2 className="portfolio-title">Our Portfolio</h2>
-        <p className="portfolio-description">
-          Explore our diverse range of projects across various domains
-        </p>
-      </div>
+      <section className="portfolio-section">
+        <div className="portfolio-header">
+          <h2 className="portfolio-title">Our Portfolio</h2>
+          <p className="portfolio-description">
+            Explore our diverse range of projects across various domains
+          </p>
+        </div>
 
-      {/* Filter Buttons */}
-      <div className="filter-container">
-        {categories.map((category) => (
-          <button
-            key={category}
-            onClick={() => setActiveCategory(category)}
-            className={`filter-button ${
-              activeCategory === category ? "active" : ""
-            }`}
-          >
-            {category}
-          </button>
-        ))}
-      </div>
+        <div className="filter-container">
+          {categories.map((category) => (
+            <button
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`filter-button ${
+                activeCategory === category ? "active" : ""
+              }`}
+            >
+              {category}
+            </button>
+          ))}
+        </div>
 
-      {/* Portfolio Grid */}
-      <div className="portfolio-grid">
-        {filteredItems.map((item) => (
-          <div key={item.id} className="portfolio-item">
-            <img
-              src={item.imageUrl}
-              alt={item.title}
-              width={400}
-              height={300}
-              className="portfolio-image"
-            />
-            <div className="portfolio-overlay">
-              <div className="portfolio-content">
-                <h3 className="portfolio-item-title">{item.title}</h3>
-                <p className="portfolio-item-category">{item.category}</p>
-                <p className="portfolio-item-description">{item.description}</p>
+        <div className="portfolio-grid">
+          {filteredItems.map((item) => (
+            <div key={item.id} className="portfolio-item" onClick={() => openPopup(item)}>
+              <img
+                src={item.imageUrl}
+                alt={item.title}
+                width={400}
+                height={300}
+                className="portfolio-image"
+              />
+              <div className="portfolio-overlay">
+                <div className="portfolio-content">
+                  <h3 className="portfolio-item-title">{item.title}</h3>
+                  <p className="portfolio-item-category">{item.category}</p>
+                  <p className="portfolio-item-description">{item.description}</p>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
-    </section>
-    {/* <div className="" style={{width:"100%", height:"100vh"}}>
-      <ThreeScene/>
-      </div> */}
+          ))}
+        </div>
+      </section>
+      <Popup isOpen={isPopupOpen} onClose={closePopup} item={selectedItem} />
     </>
   );
 }
+
