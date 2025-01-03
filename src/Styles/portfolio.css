@@ -1,7 +1,8 @@
 .portfolio-section {
   padding: 4rem 1rem;
-  max-width: 1280px;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 30px 60px;
 }
 
 .portfolio-header {
@@ -97,7 +98,8 @@
 .portfolio-item:hover .portfolio-overlay {
   opacity: 1;
   border: 1px solid; /* Set border width */
-  border-image: linear-gradient(90deg, #0066ff, #00ffff, #0066ff) 1;}
+  border-image: linear-gradient(90deg, #0066ff, #00ffff, #0066ff) 1;
+}
 
 .portfolio-content {
   text-align: center;
