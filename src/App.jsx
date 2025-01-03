@@ -1,25 +1,29 @@
-import "./App.css";
-import ChooseUs from "./Components/ChooseUs";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+// import Preloader from "./Components/Preloader";
 import Header from "./Components/Header";
-import Hero from "./Components/Hero";
-import PortfolioSection from "./Components/PortfolioSection";
-// import ThreeScene from "./Components/ThreeScene";
-import Footer from "./Pages/Footer";
+import Home from "./Pages/Home";
 import Services from "./Pages/Services";
+import Portfolio from "./Pages/Portfolio";
+import Team from "./Pages/Team";
+import Footer from "./Pages/Footer";
 
 function App() {
+
   return (
     <>
-      <Header />
-      <Hero />
-      <Services />
-      <ChooseUs />
-      <PortfolioSection />
-      {/* <div className="" style={{width:"100%", height:"100vh"}}>
-      <ThreeScene/>
-      </div> */}
+    
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/team" element={<Team />} />
+          </Routes>
+          <Footer />
+        </Router>
      
-      <Footer/>
     </>
   );
 }

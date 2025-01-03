@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import "../styles/portfolio.css";
-import ThreeScene from "./ThreeScene";
+// import ThreeScene from "./ThreeScene";
 
 const portfolioItems = [
   {
@@ -123,9 +123,9 @@ export default function PortfolioSection() {
         ))}
       </div>
     </section>
-    <div className="" style={{width:"100%", height:"100vh"}}>
+    {/* <div className="" style={{width:"100%", height:"100vh"}}>
       <ThreeScene/>
-      </div>
+      </div> */}
     </>
   );
 }
