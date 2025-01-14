@@ -1,8 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import NewAnimation from "../Components/NewAnimation";
-import { motion } from "framer-motion";
 import "../styles/OurServices.css";
 import Services from "../Components/Services";
+import ServicesHero from "../Components/ServicesHero";
 
 function OurServices() {
   return (
@@ -14,7 +14,7 @@ function OurServices() {
         <div className="gradient-3-our"></div>
       </div> */}
 
-        <div className="glass-container-our">
+        {/* <div className="glass-container-our">
           <div className="content-wrapper-our">
             <motion.div
               className="animation-wrapper-our"
@@ -24,17 +24,20 @@ function OurServices() {
             >
               <div className="animation-background-our">
                 <div className="animation-glow-our"></div>
-                <NewAnimation />
               </div>
             </motion.div>
           </div>
-        </div>
+        </div> */}
+                    
+
 
         {/* <div className="decorative-elements-our">
         <div className="tech-circle-our"></div>
         <div className="tech-line-our"></div>
         <div className="tech-dot-our"></div>
       </div> */}
+
+      <ServicesHero/>
       </div>
       <div className="">
         {" "}
