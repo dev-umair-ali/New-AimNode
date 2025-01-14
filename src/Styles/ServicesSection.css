@@ -1,82 +1,58 @@
-/* Advanced Styling */
-.services-section-sec {
-    padding: 100px 20px;
-    background: linear-gradient(to bottom right, #1e293b, #3b82f6);
-    color: #ffffff;
-    text-align: center;
-    font-family: 'Arial', sans-serif;
-  }
-  
-  .services-banner-sec {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    justify-content: center;
-    gap: 50px;
+.services-section-secw {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #0a192f;
+  overflow: hidden;
+}
+
+.services-container-secw {
+  width: 100%;
+  max-width: 1600px; /* Increased max-width for larger screens */
+  margin: 0 auto;
+  /* padding: 2rem; */
+}
+
+.services-animation-wrapper-secw {
+  width: 100%;
+  aspect-ratio: 16/9; /* Maintains proper aspect ratio */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.services-lottie-secw {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  image-rendering: -webkit-optimize-contrast; /* Improves clarity in webkit browsers */
+  image-rendering: crisp-edges;
+}
+
+/* Responsive adjustments without scaling transforms */
+@media (max-width: 1600px) {
+  .services-container-secw {
     max-width: 1200px;
-    margin: 0 auto;
   }
-  
-  .services-content-sec {
-    flex: 1;
-    padding: 20px;
-    text-align: left;
+}
+
+@media (max-width: 1200px) {
+  .services-container-secw {
+    max-width: 900px;
   }
-  
-  .services-title-sec {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    color: #ffffff;
-    font-weight: 700;
-  }
-  
-  .services-description-sec {
-    font-size: 1.2rem;
-    margin-bottom: 30px;
-    color: #cbd5e1;
-    line-height: 1.8;
-  }
-  
-  .services-button-sec {
-    background-color: #3b82f6;
-    color: #ffffff;
-    border: none;
-    padding: 15px 40px;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease-in-out;
-  }
-  
-  .services-button-sec:hover {
-    background-color: #2563eb;
-    transform: translateY(-5px);
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.4);
-  }
-  
-  .services-animation-sec {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 600px;
-  }
-  
-  .services-animation-sec .lottie-player {
+}
+
+@media (max-width: 768px) {
+  .services-container-secw {
     max-width: 100%;
-    height: auto;
+    padding: 1rem;
   }
   
-  @media (min-width: 768px) {
-    .services-banner-sec {
-      flex-direction: row;
-      gap: 40px;
-    }
-  
-    .services-content-sec {
-      padding-right: 40px;
-    }
+  .services-animation-wrapper-secw {
+    aspect-ratio: 4/3; /* Slightly different aspect ratio for mobile */
   }
-  
+}
+

@@ -64,8 +64,9 @@
     width: 100px;
   }
   .it {
-    color: #0066ff;
-    background-color: rgba(0, 102, 255, 0.1);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    background-color: rgba(0, 102, 255, 0.1);
     padding: 0.2rem 0.5rem;
     border-radius: 4px;
     margin-left: 0.25rem;
@@ -77,14 +78,15 @@
   }
   
   .description {
-    color: #999;
+    color: #ffffff;
     line-height: 1.6;
     animation: slideIn 0.5s ease-out;
   }
   
   .socialLinks h3 {
-    color: #0066ff;
-    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    margin-bottom: 1rem;
   }
   
   .socialIcons {
@@ -99,8 +101,9 @@
   }
   
   .socialIcons a:hover {
-    color: #0066ff;
-    transform: translateY(-3px);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;    transform: translateY(-3px);
   }
   
   .services, .information, .contacts {
@@ -111,7 +114,9 @@
   }
   
   .services h3, .information h3, .contacts h3 {
-    color: #0066ff;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-size: 1.25rem;
     margin-bottom: 0.5rem;
     position: relative;
@@ -185,7 +190,9 @@
   }
   
   .contactInfo svg {
-    color: #0066ff;
+       background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;;
   }
   
   .newsletter {
@@ -251,7 +258,9 @@
   }
   
   .copyright a {
-    color: #0066ff;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     text-decoration: none;
     transition: all 0.3s ease;
   }
