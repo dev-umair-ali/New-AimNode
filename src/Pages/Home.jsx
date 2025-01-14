@@ -5,6 +5,7 @@ import ChooseUs from "../Components/ChooseUs";
 import Hero from "../Components/Hero";
 import PortfolioSection from "../Components/PortfolioSection";
 import Services from "../Components/Services";
+import Marquee from "../Components/Marquee";
 
 // Register the ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
@@ -100,6 +101,9 @@ function Home() {
 
       <div className="portfolio-section">
         <PortfolioSection />
+      </div>
+      <div className="">
+        <Marquee/>
       </div>
     </div>
   );

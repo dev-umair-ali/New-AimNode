@@ -1,0 +1,216 @@
+.Marquee-slider {
+    height: 200px; /* Increased height for larger images */
+    position: relative;
+    width: 100%;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+  }
+  
+  .Marquee-slider::before,
+  .Marquee-slider::after {
+    position: absolute;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
+    content: '';
+    height: 100%;
+    width: 25%;
+    z-index: 2;
+    pointer-events: none;
+  }
+  
+  .Marquee-slider::before {
+    left: 0;
+    top: 0;
+  }
+  
+  .Marquee-slider::after {
+    right: 0;
+    top: 0;
+    transform: rotateZ(180deg);
+  }
+  
+  .Marquee-slide-track {
+    width: calc(250px * 20); /* Increased width for larger images */
+    display: flex;
+    justify-content: space-between;
+    opacity: 1;
+  }
+  
+  .Marquee-slide-track.paused {
+    animation-play-state: paused;
+  }
+  
+  .Marquee-slide-track.left {
+    animation: Marquee-scroll-left 30s linear infinite;
+  }
+  
+  .Marquee-slide-track.right {
+    animation: Marquee-scroll-right 30s linear infinite;
+  }
+  
+  .Marquee-slide {
+    width: 250px; /* Increased width */
+    height: 180px; /* Increased height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    padding: 10px;
+    position: relative;
+    background: white;
+    border-radius: 8px;
+    margin: 0 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .Marquee-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Changed to cover for better image display */
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+  
+  .Marquee-slide:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .Marquee-slide:hover img {
+    transform: scale(1.05);
+  }
+  
+  /* Rest of the CSS remains the same */
+  
+  @keyframes Marquee-scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-250px * 10)); /* Adjusted for new width */
+    }
+  }
+  
+  @keyframes Marquee-scroll-right {
+    0% {
+      transform: translateX(calc(-250px * 10)); /* Adjusted for new width */
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .Marquee-slider {
+      height: 150px;
+    }
+  
+    .Marquee-slide-track {
+      width: calc(180px * 20);
+    }
+  
+    .Marquee-slide {
+      width: 180px;
+      height: 130px;
+    }
+  
+    @keyframes Marquee-scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-180px * 10));
+      }
+    }
+  
+    @keyframes Marquee-scroll-right {
+      0% {
+        transform: translateX(calc(-180px * 10));
+      }
+      100% {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  
+  .Marquee-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .Marquee-control-button {
+    background: linear-gradient(
+        135deg,
+        var(--primary-color) 0%,
+        var(--secondary-color) 100%
+      );
+    color: white;
+    border: 2px solid  var(--secondary-color) 100%;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .Marquee-control-button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.5s ease;
+    z-index: 0;
+  }
+  
+  .Marquee-control-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .Marquee-control-button:active {
+    transform: scale(0.98);
+  }
+  
+  .Marquee-control-button:hover::before {
+    width: 0;
+    height: 0;
+  }
+  
+  .Marquee-control-button span {
+    z-index: 1;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .Marquee-control-button:focus {
+    animation: pulse 1s infinite;
+  }
+  
